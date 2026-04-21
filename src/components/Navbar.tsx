@@ -11,6 +11,8 @@ interface NavbarProps {
   onSearch: (term: string) => void;
   searchTerm: string;
   onCartToggle: () => void;
+  onFavoritesToggle: () => void;
+  onBranchesOpen: () => void;
   onAuthOpen: (mode: 'signin' | 'signup') => void;
   categories: string[];
   onSelectCategory: (category: string | null) => void;
@@ -22,6 +24,8 @@ const Navbar: React.FC<NavbarProps> = ({
   onSearch, 
   searchTerm, 
   onCartToggle, 
+  onFavoritesToggle,
+  onBranchesOpen,
   onAuthOpen,
   categories,
   onSelectCategory,
@@ -161,10 +165,16 @@ const Navbar: React.FC<NavbarProps> = ({
                 <>
                   <button onClick={() => { onAuthOpen('signin'); toggleMobileMenu(); }}>{t('signIn')}</button>
                   <button onClick={() => { onAuthOpen('signup'); toggleMobileMenu(); }} className="signup-btn">{t('signUp')}</button>
+                  <button onClick={() => { onFavoritesToggle(); toggleMobileMenu(); }} style={{marginTop: '8px'}}>
+                    ❤️ {t('favorites') || 'Favorites'} ({favoritesCount})
+                  </button>
                 </>
               ) : (
                 <>
-                  <button onClick={() => { handleHistoryClick(); toggleMobileMenu(); }}>
+                  <button onClick={() => { onFavoritesToggle(); toggleMobileMenu(); }}>
+                    ❤️ {t('favorites') || 'Favorites'} ({favoritesCount})
+                  </button>
+                  <button onClick={() => { handleHistoryClick(); toggleMobileMenu(); }} style={{marginTop: '8px'}}>
                     📜 {t('purchaseHistory') || 'Purchase History'} ({userTransactionsCount})
                   </button>
                   <button onClick={() => { logout(); toggleMobileMenu(); }} className="logout-btn">
@@ -178,7 +188,7 @@ const Navbar: React.FC<NavbarProps> = ({
           <div className="mobile-menu-section">
             <h3>{t('services')}</h3>
             <div className="mobile-service-links">
-              <a href="#">{t('supermarket')}</a>
+              <button onClick={() => { onBranchesOpen(); toggleMobileMenu(); }} style={{textAlign: 'left'}}>{t('supermarket')}</button>
               <a href="#">{t('restaurant')}</a>
               <a href="#">{t('promotions')}</a>
               <a href="#">{t('newArrivals')}</a>
@@ -272,7 +282,7 @@ const Navbar: React.FC<NavbarProps> = ({
               </div>
               <span className="action-label">{t('purchaseHistory') || 'Records'}</span>
             </button>
-            <button className="nav-action-item">
+            <button className="nav-action-item" onClick={onFavoritesToggle}>
               <div className="cart-icon-wrapper">
                 <Heart size={24} />
                 {favoritesCount > 0 && <span className="cart-badge">{favoritesCount}</span>}
@@ -346,7 +356,7 @@ const Navbar: React.FC<NavbarProps> = ({
           </div>
           
           <div className="service-links">
-            <a href="#" className="active">{t('supermarket')}</a>
+            <button className="service-link-btn active" onClick={onBranchesOpen}>{t('supermarket')}</button>
             <a href="#">{t('restaurant')}</a>
             <a href="#">{t('promotions')}</a>
             <a href="#">{t('newArrivals')}</a>

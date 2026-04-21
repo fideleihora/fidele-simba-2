@@ -339,19 +339,22 @@
   gap: 30px;
 }
 
-.service-links a {
+.service-links a, .service-link-btn {
   font-size: 14px;
   font-weight: 900;
   color: var(--text-main);
   text-transform: uppercase;
   position: relative;
+  background: none;
+  padding: 0;
 }
 
-.service-links a:hover, .service-links a.active {
+.service-links a:hover, .service-links a.active,
+.service-link-btn:hover, .service-link-btn.active {
   color: var(--primary);
 }
 
-.service-links a.active::after {
+.service-links a.active::after, .service-link-btn.active::after {
   content: '';
   position: absolute;
   bottom: -4px;

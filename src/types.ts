@@ -39,6 +39,14 @@ export interface User {
   password?: string; // Only for local storage simulation
 }
 
+export interface Branch {
+  id: string;
+  name: string;
+  address: string;
+  city: string;
+  phone?: string;
+}
+
 export interface StoreData {
   store: Store;
   products: Product[];

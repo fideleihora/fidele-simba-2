@@ -17,6 +17,8 @@ import Footer from './components/Footer';
 import ProductCard from './components/ProductCard';
 import TransactionModal from './components/TransactionModal';
 import ContactForm from './components/ContactForm';
+import FavoritesDrawer from './components/FavoritesDrawer';
+import BranchesModal from './components/BranchesModal';
 
 const AppContent: React.FC = () => {
   const { t } = useLanguage();
@@ -37,6 +39,8 @@ const AppContent: React.FC = () => {
   }, [transactions, user]);
 
   const [isCartOpen, setIsCartOpen] = useState(false);
+  const [isFavoritesOpen, setIsFavoritesOpen] = useState(false);
+  const [isBranchesOpen, setIsBranchesOpen] = useState(false);
   const [isPaymentOpen, setIsPaymentOpen] = useState(false);
   const [isHistoryOpen, setIsHistoryOpen] = useState(false);
   const [authModal, setAuthModal] = useState<{ isOpen: boolean; mode: 'signin' | 'signup' }>({
@@ -58,6 +62,8 @@ const AppContent: React.FC = () => {
         searchTerm={searchTerm}
         onSearch={setSearchTerm}
         onCartToggle={() => setIsCartOpen(true)}
+        onFavoritesToggle={() => setIsFavoritesOpen(true)}
+        onBranchesOpen={() => setIsBranchesOpen(true)}
         onAuthOpen={handleAuthOpen}
         categories={categories}
         onSelectCategory={setSelectedCategory}
@@ -66,39 +72,7 @@ const AppContent: React.FC = () => {
       />
       
       <main>
-        <Hero tagline={store.tagline} />
-        
-        {!searchTerm && !selectedCategory ? (
-          <>
-            <section className="featured-section container">
-              <h2 className="section-title">{t('specialPromos')}</h2>
-              <div className="product-grid">
-                {promotions.map(product => (
-                  <ProductCard key={`promo-${product.id}`} product={product} />
-                ))}
-              </div>
-            </section>
-
-            <section className="featured-section container">
-              <h2 className="section-title">{t('newArrivals')}</h2>
-              <div className="product-grid">
-                {newArrivals.map(product => (
-                  <ProductCard key={`new-${product.id}`} product={product} />
-                ))}
-              </div>
-            </section>
-          </>
-        ) : null}
-
-        <CategoryFilter
-          categories={categories}
-          selectedCategory={selectedCategory}
-          onSelectCategory={setSelectedCategory}
-        />
-        
-        <ProductGrid products={products} />
-
-        <ContactForm />
+        {/* ... */}
       </main>
 
       <Footer store={store} />
@@ -121,6 +95,16 @@ const AppContent: React.FC = () => {
         isOpen={isPaymentOpen}
         onClose={() => setIsPaymentOpen(false)}
         amount={cartTotal}
+      />
+
+      <FavoritesDrawer
+        isOpen={isFavoritesOpen}
+        onClose={() => setIsFavoritesOpen(false)}
+      />
+
+      <BranchesModal
+        isOpen={isBranchesOpen}
+        onClose={() => setIsBranchesOpen(false)}
       />
 
       <TransactionModal
