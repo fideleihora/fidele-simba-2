@@ -124,6 +124,22 @@
   gap: 4px;
 }
 
+.trx-pickup-info {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background-color: var(--light);
+  padding: 8px 12px;
+  border-radius: 8px;
+  margin-bottom: 16px;
+  font-size: 13px;
+  color: var(--text-main);
+}
+
+.trx-pickup-info strong {
+  color: var(--primary);
+}
+
 .trx-status {
   padding: 4px 10px;
   border-radius: 6px;

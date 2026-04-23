@@ -10,7 +10,7 @@ interface CartContextType {
   cartTotal: number;
   cartCount: number;
   transactions: Transaction[];
-  recordTransaction: (userId: string) => void;
+  recordTransaction: (userId: string, pickupBranch?: string) => void;
 }
 
 const CartContext = createContext<CartContextType | undefined>(undefined);
@@ -62,7 +62,7 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children
 
   const clearCart = () => setCart([]);
 
-  const recordTransaction = (userId: string) => {
+  const recordTransaction = (userId: string, pickupBranch?: string) => {
     if (cart.length === 0) return;
 
     const newTransaction: Transaction = {
@@ -72,6 +72,7 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children
       items: [...cart],
       total: cartTotal,
       status: 'completed',
+      pickupBranch,
     };
 
     setTransactions((prev) => [newTransaction, ...prev]);

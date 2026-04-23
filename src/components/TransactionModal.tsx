@@ -73,6 +73,13 @@ const TransactionModal: React.FC<TransactionModalProps> = ({ isOpen, onClose, tr
                     </div>
                   </div>
 
+                  {trx.pickupBranch && (
+                    <div className="trx-pickup-info">
+                      <MapPin size={12} />
+                      <span>Pickup at: <strong>{trx.pickupBranch}</strong></span>
+                    </div>
+                  )}
+
                   <div className="trx-items">
                     {trx.items.map((item, idx) => (
                       <div key={`${trx.id}-${item.id}-${idx}`} className="trx-item-row">

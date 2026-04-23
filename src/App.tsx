@@ -72,7 +72,39 @@ const AppContent: React.FC = () => {
       />
       
       <main>
-        {/* ... */}
+        <Hero tagline={store.tagline} />
+        
+        <div className="featured-section">
+          <div className="container">
+            <h2 className="section-title">{t('promotions')}</h2>
+            <div className="product-grid">
+              {promotions.map(product => (
+                <ProductCard key={product.id} product={product} />
+              ))}
+            </div>
+          </div>
+        </div>
+
+        <CategoryFilter
+          categories={categories}
+          selectedCategory={selectedCategory}
+          onSelectCategory={setSelectedCategory}
+        />
+
+        <ProductGrid products={products} />
+
+        <div className="featured-section">
+          <div className="container">
+            <h2 className="section-title">{t('newArrivals')}</h2>
+            <div className="product-grid">
+              {newArrivals.map(product => (
+                <ProductCard key={product.id} product={product} />
+              ))}
+            </div>
+          </div>
+        </div>
+
+        <ContactForm />
       </main>
 
       <Footer store={store} />

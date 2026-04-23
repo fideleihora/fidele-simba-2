@@ -29,6 +29,7 @@ export interface Transaction {
   items: TransactionItem[];
   total: number;
   status: 'completed' | 'pending' | 'failed';
+  pickupBranch?: string;
 }
 
 export interface User {

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { X, Phone, CreditCard, CheckCircle2, Loader2 } from 'lucide-react';
+import { X, Phone, CreditCard, CheckCircle2, Loader2, MapPin, Clock } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 import { useCart } from '../context/CartContext';
 import { useAuth } from '../context/AuthContext';
@@ -11,11 +11,25 @@ interface PaymentModalProps {
   amount: number;
 }
 
+const branches = [
+  'Simba City Center (UTC)',
+  'Simba Gishushu',
+  'Simba Nyarutarama',
+  'Simba Kimihurura',
+  'Simba Kimironko',
+  'Simba Nyamirambo',
+  'Simba Kicukiro',
+  'Simba Kanombe',
+  'Simba Gisozi',
+  'Simba Gisenyi',
+];
+
 const PaymentModal: React.FC<PaymentModalProps> = ({ isOpen, onClose, amount }) => {
   const { t } = useLanguage();
   const { recordTransaction } = useCart();
   const { user } = useAuth();
   const [phoneNumber, setPhoneNumber] = useState('');
+  const [selectedBranch, setSelectedBranch] = useState(branches[0]);
   const [status, setStatus] = useState<'idle' | 'processing' | 'success'>('idle');
 
   if (!isOpen) return null;
@@ -35,7 +49,7 @@ const PaymentModal: React.FC<PaymentModalProps> = ({ isOpen, onClose, amount }) 
     // Simulate MOMO payment process
     setTimeout(() => {
       if (user) {
-        recordTransaction(user.id);
+        recordTransaction(user.id, selectedBranch);
       }
       setStatus('success');
       setTimeout(() => {
@@ -57,7 +71,11 @@ const PaymentModal: React.FC<PaymentModalProps> = ({ isOpen, onClose, amount }) 
           <div className="payment-success-state">
             <CheckCircle2 size={80} color="#22c55e" />
             <h2>{t('paymentSuccess')}</h2>
-            <p>Thank you for shopping with Simba Supermarket!</p>
+            <p>Your order is ready for pickup at <strong>{selectedBranch}</strong>.</p>
+            <div className="pickup-hint">
+              <Clock size={16} />
+              <span>Estimated pickup time: 30-45 minutes</span>
+            </div>
           </div>
         ) : (
           <>
@@ -73,6 +91,23 @@ const PaymentModal: React.FC<PaymentModalProps> = ({ isOpen, onClose, amount }) 
               <div className="amount-display">
                 <label>{t('amountToPay')}</label>
                 <div className="total-value">{formatPrice(amount)}</div>
+              </div>
+
+              <div className="form-group">
+                <label>Select Pickup Branch</label>
+                <div className="input-wrapper">
+                  <MapPin size={18} className="input-icon" />
+                  <select 
+                    className="branch-select"
+                    value={selectedBranch}
+                    onChange={(e) => setSelectedBranch(e.target.value)}
+                    disabled={status === 'processing'}
+                  >
+                    {branches.map(branch => (
+                      <option key={branch} value={branch}>{branch}</option>
+                    ))}
+                  </select>
+                </div>
               </div>
 
               <div className="form-group">

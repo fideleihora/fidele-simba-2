@@ -96,7 +96,32 @@
   color: var(--primary);
 }
 
-.btn-momo {
+.branch-select {
+  width: 100%;
+  background: none;
+  border: none;
+  padding: 14px 16px 14px 48px;
+  font-size: 14px;
+  color: var(--text-main);
+  font-weight: 700;
+  cursor: pointer;
+  appearance: none;
+}
+
+.pickup-hint {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background-color: var(--light);
+  padding: 12px 20px;
+  border-radius: 10px;
+  color: var(--text-main);
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.payment-form {
+
   background-color: #ffcc00; /* MTN Yellow */
   color: #000;
   height: 64px;
