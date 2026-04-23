@@ -1,5 +1,5 @@
 import React from 'react';
-import { X, Calendar, Package, CheckCircle2, Clock, User } from 'lucide-react';
+import { X, Calendar, Package, CheckCircle2, Clock, User, MapPin } from 'lucide-react';
 import { Transaction } from '../types';
 import { useLanguage } from '../context/LanguageContext';
 import { useAuth } from '../context/AuthContext';
