@@ -32,44 +32,6 @@ const Footer: React.FC<FooterProps> = ({ store }) => {
             <a href="#"><Play size={20} /></a>
           </div>
         </div>
-
-        <div className="footer-links">
-          <h3>{t('quickLinks')}</h3>
-          <ul>
-            <li><a href="#">{t('aboutUs')}</a></li>
-            <li><a href="#">{t('supermarket')}</a></li>
-            <li><a href="#">{t('restaurant')}</a></li>
-            <li><a href="#">{t('promotions')}</a></li>
-            <li><a href="#">{t('account')}</a></li>
-          </ul>
-        </div>
-
-        <div className="footer-links">
-          <h3>{t('customerService')}</h3>
-          <ul>
-            <li><a href="#">{t('deliveryInfo')}</a></li>
-            <li><a href="#">{t('returns')}</a></li>
-            <li><a href="#">FAQ</a></li>
-            <li><a href="#">{t('contactUs')}</a></li>
-            <li><a href="#">Store Locations</a></li>
-          </ul>
-        </div>
-
-        <div className="footer-contact">
-          <h3>{t('contactUs')}</h3>
-          <div className="contact-item">
-            <MapPin size={18} />
-            <span>{t('location')}</span>
-          </div>
-          <div className="contact-item">
-            <Phone size={18} />
-            <span>+250 788 000 000</span>
-          </div>
-          <div className="contact-item">
-            <Mail size={18} />
-            <span>support@simba.rw</span>
-          </div>
-        </div>
       </div>
       
       <div className="footer-bottom">
