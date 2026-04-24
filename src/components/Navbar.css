@@ -262,7 +262,45 @@
 .service-content {
   display: flex;
   align-items: center;
-  gap: 40px;
+  gap: 30px;
+}
+
+.nav-promo-slider-container {
+  flex: 1;
+  overflow: hidden;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  background-color: var(--light);
+  border-radius: 6px;
+  height: 36px;
+}
+
+.nav-promo-slider {
+  display: inline-flex;
+  animation: nav-slide 20s linear infinite;
+}
+
+.nav-promo-text {
+  font-size: 13px;
+  font-weight: 800;
+  margin-right: 40px;
+  display: flex;
+  align-items: center;
+  color: var(--dark);
+}
+
+.nav-promo-text.mtn {
+  color: #c9a000;
+}
+
+.nav-promo-text.airtel {
+  color: #d00000;
+}
+
+@keyframes nav-slide {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
 }
 
 .category-dropdown-container {

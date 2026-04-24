@@ -357,11 +357,18 @@ const Navbar: React.FC<NavbarProps> = ({
             )}
           </div>
           
-          <div className="service-links">
-            <button className="service-link-btn active" onClick={onBranchesOpen}>{t('supermarket')}</button>
-            <a href="#">{t('restaurant')}</a>
-            <a href="#">{t('promotions')}</a>
-            <a href="#">{t('newArrivals')}</a>
+          <div className="nav-promo-slider-container">
+            <div className="nav-promo-slider">
+              <span className="nav-promo-text">🚀 30 MINUTES DELIVERY</span>
+              <span className="nav-promo-text">🥬 FRESH PRODUCTS</span>
+              <span className="nav-promo-text mtn">📱 MTN MOMO PAY</span>
+              <span className="nav-promo-text airtel">💳 AIRTEL MONEY</span>
+              {/* Duplicate for seamless loop */}
+              <span className="nav-promo-text">🚀 30 MINUTES DELIVERY</span>
+              <span className="nav-promo-text">🥬 FRESH PRODUCTS</span>
+              <span className="nav-promo-text mtn">📱 MTN MOMO PAY</span>
+              <span className="nav-promo-text airtel">💳 AIRTEL MONEY</span>
+            </div>
           </div>
         </div>
       </div>

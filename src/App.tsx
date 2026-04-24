@@ -127,15 +127,6 @@ const AppContent: React.FC = () => {
               </div>
             </div>
 
-            <div className="big-promo-slider-container">
-              <div className="big-promo-slider">
-                <div className="big-promo-item">🚀 30 MINUTES DELIVERY</div>
-                <div className="big-promo-item">🥬 FRESH PRODUCTS</div>
-                <div className="big-promo-item mtn">📱 MTN MOMO PAY</div>
-                <div className="big-promo-item airtel">💳 AIRTEL MONEY</div>
-              </div>
-            </div>
-
             <ContactForm />
           </>
         ) : (
