@@ -76,6 +76,19 @@ const AppContent: React.FC = () => {
         
         <div className="featured-section">
           <div className="container">
+            <div className="promo-slider-container">
+              <div className="promo-slider">
+                <span className="promo-text">🚀 30 MINUTES DELIVERY</span>
+                <span className="promo-text">🥬 FRESH PRODUCTS</span>
+                <span className="promo-text mtn">📱 MTN MOMO PAY</span>
+                <span className="promo-text airtel">💳 AIRTEL MONEY</span>
+                {/* Duplicate for seamless loop */}
+                <span className="promo-text">🚀 30 MINUTES DELIVERY</span>
+                <span className="promo-text">🥬 FRESH PRODUCTS</span>
+                <span className="promo-text mtn">📱 MTN MOMO PAY</span>
+                <span className="promo-text airtel">💳 AIRTEL MONEY</span>
+              </div>
+            </div>
             <div className="section-cta-top">
               <button 
                 className="start-shopping-btn"
@@ -154,6 +167,39 @@ const AppContent: React.FC = () => {
       />
 
       <style>{`
+        .promo-slider-container {
+          width: 100%;
+          overflow: hidden;
+          background: var(--dark);
+          padding: 12px 0;
+          margin-bottom: 20px;
+          border-radius: 8px;
+          display: flex;
+          white-space: nowrap;
+        }
+        .promo-slider {
+          display: inline-flex;
+          animation: slide 20s linear infinite;
+        }
+        .promo-text {
+          color: var(--white);
+          font-weight: 800;
+          font-size: 16px;
+          margin-right: 50px;
+          display: flex;
+          align-items: center;
+          letter-spacing: 0.5px;
+        }
+        .promo-text.mtn {
+          color: #FFCC00;
+        }
+        .promo-text.airtel {
+          color: #FF0000;
+        }
+        @keyframes slide {
+          0% { transform: translateX(0); }
+          100% { transform: translateX(-50%); }
+        }
         .section-cta-top {
           display: flex;
           justify-content: center;
