@@ -5,9 +5,10 @@ import './Hero.css';
 
 interface HeroProps {
   tagline: string;
+  onStartShopping: () => void;
 }
 
-const Hero: React.FC<HeroProps> = ({ tagline }) => {
+const Hero: React.FC<HeroProps> = ({ tagline, onStartShopping }) => {
   const { t } = useLanguage();
 
   return (
@@ -19,6 +20,12 @@ const Hero: React.FC<HeroProps> = ({ tagline }) => {
               <span className="promo-badge"><Zap size={14} /> {t('promoBadge')}</span>
               <h1>{tagline}</h1>
               <p>Get the best quality groceries and household items at unbeatable prices. Delivered right to your doorstep in Kigali.</p>
+              <button 
+                className="start-shopping-btn hero-btn"
+                onClick={onStartShopping}
+              >
+                START SHOPPING NOW
+              </button>
             </div>
             <div className="banner-image">
               <img src="https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&q=80&w=1000" alt="Fresh Groceries" />

@@ -57,20 +57,8 @@
   max-width: 500px;
 }
 
-.hero-cta {
-  display: flex;
-  gap: 16px;
-}
-
-.btn-outline {
-  border: 2px solid var(--white);
-  color: var(--white);
-  background: none;
-}
-
-.btn-outline:hover {
-  background-color: var(--white);
-  color: var(--primary);
+.hero-btn {
+  display: inline-flex;
 }
 
 .banner-image {
@@ -166,7 +154,8 @@
     padding: 30px;
   }
   
-  .hero-cta {
-    flex-direction: column;
+  .hero-btn {
+    width: 100%;
+    justify-content: center;
   }
 }

@@ -96,18 +96,10 @@ const AppContent: React.FC = () => {
       <main>
         {view === 'home' ? (
           <>
-            <Hero tagline={store.tagline} />
+            <Hero tagline={store.tagline} onStartShopping={handleStartShopping} />
             
             <div className="featured-section">
               <div className="container">
-                <div className="section-cta-top">
-                  <button 
-                    className="start-shopping-btn"
-                    onClick={handleStartShopping}
-                  >
-                    START SHOPPING NOW
-                  </button>
-                </div>
               </div>
             </div>
 
