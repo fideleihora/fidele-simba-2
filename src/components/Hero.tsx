@@ -17,7 +17,6 @@ const Hero: React.FC<HeroProps> = ({ tagline, onStartShopping }) => {
         <div className="hero-grid">
           <div className="hero-main-banner">
             <div className="banner-content">
-              <span className="promo-badge"><Zap size={14} /> {t('promoBadge')}</span>
               <h1>{tagline}</h1>
               <p>Get the best quality groceries and household items at unbeatable prices. Delivered right to your doorstep in Kigali.</p>
               <button 
