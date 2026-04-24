@@ -76,19 +76,6 @@ const AppContent: React.FC = () => {
         
         <div className="featured-section">
           <div className="container">
-            <div className="promo-slider-container">
-              <div className="promo-slider">
-                <span className="promo-text">🚀 30 MINUTES DELIVERY</span>
-                <span className="promo-text">🥬 FRESH PRODUCTS</span>
-                <span className="promo-text mtn">📱 MTN MOMO PAY</span>
-                <span className="promo-text airtel">💳 AIRTEL MONEY</span>
-                {/* Duplicate for seamless loop */}
-                <span className="promo-text">🚀 30 MINUTES DELIVERY</span>
-                <span className="promo-text">🥬 FRESH PRODUCTS</span>
-                <span className="promo-text mtn">📱 MTN MOMO PAY</span>
-                <span className="promo-text airtel">💳 AIRTEL MONEY</span>
-              </div>
-            </div>
             <div className="section-cta-top">
               <button 
                 className="start-shopping-btn"
